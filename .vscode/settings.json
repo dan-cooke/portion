@@ -1,0 +1,4 @@
+{
+    "tslint.configFile": "tsling.json",
+    "tslint.jsEnable": true
+}
