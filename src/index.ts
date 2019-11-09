@@ -1,9 +1,12 @@
-import Bar from "./components/Bar";
-import PortionProvider from './context/PortionProvider';
+import ShowcaseProvider from "./context/ShowcaseProvider";
 
+import useLanguageBreakdown from "./hooks/useLanguageBreakdown";
+import getLanguageBreakdown from "./util/getLanguageBreakdown";
+import LanguageBar from "./components/LanguageBar";
 
 export {
-    Bar,
-
-    PortionProvider
-}
+  LanguageBar,
+  useLanguageBreakdown,
+  getLanguageBreakdown,
+  ShowcaseProvider
+};

@@ -1,5 +1,5 @@
 {
-  "name": "portion",
+  "name": "showcase",
   "version": "1.0.0",
   "description": "Components for displaying the language breakdown of Github repositories.",
   "main": "dist/index.js",
@@ -8,6 +8,7 @@
     "dist"
   ],
   "types": "dist/index.d.ts",
+  "style": "dist/index.css",
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -cw",
@@ -19,6 +20,10 @@
   "author": "Daniel Cooke <danielcooke1996@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@types/styled-components": "^4.4.0",
+    "rollup-plugin-scss": "^1.0.2"
+  },
+  "peerDependencies": {
     "react": "^16.11.0",
     "react-dom": "^16.11.0"
   },
@@ -27,11 +32,12 @@
     "@types/react-dom": "^16.9.3",
     "prettier": "^1.18.2",
     "rollup": "^1.26.3",
+    "rollup-plugin-postcss": "^2.0.3",
     "rollup-plugin-typescript2": "^0.24.3",
     "tslint": "^5.20.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-plugin-prettier": "^2.0.1",
     "tslint-react": "^4.1.0",
-    "typescript": "^3.6.4"
+    "typescript": "^3.7.0"
   }
 }

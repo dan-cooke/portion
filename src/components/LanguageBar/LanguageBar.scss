@@ -1,0 +1,10 @@
+.sc-language-bar {
+
+    display: flex;
+    width: 500px;
+    height: 20px;
+
+    &__portion {
+        display: block;
+    }
+}

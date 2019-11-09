@@ -6,9 +6,15 @@
         "noImplicitAny": true,
         "removeComments": true,
         "preserveConstEnums": true,
+        "moduleResolution": "node",
         "outDir": "./dist",
         "sourceMap": true,
-        "jsx": "react"
+        "jsx": "react",
+        "types": [
+            "react",
+            "jest",
+            "node"
+        ]
 
     },
     "include": [

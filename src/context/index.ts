@@ -1,6 +1,3 @@
-import PortionContext from './PortionContext';
-import PortionProvider from './PortionProvider';
-export {
-    PortionContext,
-    PortionProvider
-}
+import ShowcaseContext from "./ShowcaseContext";
+import ShowcaseProvider from "./ShowcaseProvider";
+export { ShowcaseContext, ShowcaseProvider };
