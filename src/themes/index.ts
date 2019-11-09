@@ -9,10 +9,11 @@ export default <ThemeMap>{
     colors: {
       backgroundPrimary: "#ffffff",
       backgroundSecondary: "#f6f8fa",
-      borderColor: "#d1d5da",
+      border: "#d1d5da",
       textPrimary: "#24292e",
       textSecondary: "#6a737d",
       textAccent: "#0366d6"
+      
     },
     font: {
       baseSize: "14px",

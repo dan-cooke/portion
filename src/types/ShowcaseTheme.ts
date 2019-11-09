@@ -1,7 +1,7 @@
 export interface ShowcaseThemeColors {
     backgroundPrimary: string;
     backgroundSecondary: string;
-    borderColor: string;
+    border: string;
     textPrimary: string;
     textSecondary: string;
     textAccent: string;

@@ -13,7 +13,7 @@ import styled from "styled-components";
 const LanguageBarContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 500px;
+  width: auto;
   font-family: ${props => props.theme.font.family};
   font-size: ${props => props.theme.font.baseSize};
   background: ${props => props.theme.colors.backgroundPrimary};
