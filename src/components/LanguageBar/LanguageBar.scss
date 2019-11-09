@@ -1,10 +1,23 @@
-.sc-language-bar {
+.sc-language-bar__details{
 
-    display: flex;
-    width: 500px;
-    height: 20px;
-
-    &__portion {
-        display: block;
+    transition-property: all;
+	transition-duration: .5s;
+	transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+    &--open {
+        transition-property: all;
+        transition-duration: .5s;
+        transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+        max-height: 200px;
     }
+
+    &--closed {
+        transition-property: all;
+        transition-duration: .5s;
+        transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+        margin: 0;
+        max-height: 0px;
+        opacity: 0;
+    }
+
+
 }
