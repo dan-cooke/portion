@@ -13,6 +13,7 @@ export interface ShowcaseThemeColors {
 export interface ShowcaseThemableElements {
     // TODO: find out how to use ThemedStyledFunction<'a', any, {}, never> here
     a: any;
+    topicTag: any;
 }
 export interface ShowcaseThemeFont {
     baseSize: string;

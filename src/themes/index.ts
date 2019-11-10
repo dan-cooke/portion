@@ -33,6 +33,23 @@ export default <ThemeMap>{
         :visited {
           color: #0366d6;
         }
+      `,
+      topicTag: styled.a`
+        text-decoration: none;
+        background-color: #f1f8ff;
+        color: #0366d6;
+        border-radius: 3px;
+        padding-bottom: 3.6px;
+        padding-left: 10.6px;
+        padding-right: 10.8px;
+        padding-top: 3.6px;
+        margin-right:6px;
+        margin-bottom: 6px;
+
+        :hover{
+          outline-width: 0;
+          background: #def;
+        }
       `
     }
   },
