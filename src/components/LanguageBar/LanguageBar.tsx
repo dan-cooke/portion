@@ -67,26 +67,31 @@ export default ({ repoName, repoOwner }: InputRepo) => {
 
   const { languages, totalSize } = useLanguageBreakdown({ repoName, repoOwner });
   const [detailsVisible, setDetailsVisible] = React.useState(false);
+
+  const sortedAndFilteredLanguages = languages
+    ?.filter(({ percent }: Language) => percent > 0.1)
+    .sort((langA: Language, langB: Language) => langA.size > langB.size ? -1 : 1); 
+
   return (
     <LanguageBarContainer className={`sc-language-bar`}>
       <LanguageBar className="sc-language-bar__bar" onClick={() => setDetailsVisible(!detailsVisible)}>
-        {languages ?.map((lang: Language) => {
+        {sortedAndFilteredLanguages ?.map((lang: Language) => {
           return (
             <LanguageBarSegment
               key={`language-bar-portion-${lang.id}`}
               className={`sc-language-bar__portion sc-language-bar--language--${lang.name.toLowerCase()}`}
-              style={{ width: `${lang.percent}%`, background: lang.color }}>
+              style={{ width: `${lang.percent}%`, background: lang.color || '#ccc' }}>
             </LanguageBarSegment>
           );
         })}
       </LanguageBar>
 
       <LanguageBarDetailsContainer className={`sc-language-bar__details--${detailsVisible ? 'open' : 'closed'}`}>
-        {languages ?.filter(({ percent }: Language) => percent > 0.1).map((lang: Language) => {
+        {sortedAndFilteredLanguages ?.filter(({ percent }: Language) => percent > 0.1).map((lang: Language) => {
           return (
             <LanguageBarDetails key={`language-bar-details-${lang.id}`}>
 
-              <LanguageBarDetailsColoredCircle style={{ background: lang.color }} />
+              <LanguageBarDetailsColoredCircle style={{ background: lang.color || '#ccc' }} />
               <LanguageBarDetailsLanguageName>
                 {lang.name}
               </LanguageBarDetailsLanguageName>
