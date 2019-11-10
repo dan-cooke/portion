@@ -1,6 +1,6 @@
 import { ShowcaseContextProps } from "../context/ShowcaseContext";
 import { ShowcaseAuthenticationError } from "../error/ShowcaseAuthenticationError";
-import { LanguageBreakdown, LanguageEdges } from "../types/Language";
+import { LanguageBreakdown } from "../types/Language";
 import graphql from "./graphql";
 
 async function getLanguageBreakdown(
@@ -43,7 +43,7 @@ async function getLanguageBreakdown(
   }
   const { edges, totalSize } = data.data.repository.languages;
   const languages = edges.map(
-    ({ node: { name, color }, size }: LanguageEdges) => ({
+    ({ node: { name, color }, size }: any) => ({
       name,
       color,
       size,

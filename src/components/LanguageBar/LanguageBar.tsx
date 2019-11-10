@@ -4,10 +4,9 @@
  */
 import * as React from "react";
 import useLanguageBreakdown from "../../hooks/useLanguageBreakdown";
-import InputRepo from "../../types/InputRepo";
-import { Language } from '../../types/Language';
-import { ShowcaseContext } from "../../context";
+import { Language, LanguageBreakdown } from '../../types/Language';
 import styled from "styled-components";
+import Repository from "../../types/Repository";
 
 
 const LanguageBarContainer = styled.div`
@@ -63,9 +62,8 @@ const LanguageDetailsLanguagePercent = styled.span`
   color: ${props => props.theme.colors.textSecondary};
 
 `;
-export default ({ repoName, repoOwner }: InputRepo) => {
+export default ({ languages, totalSize }: LanguageBreakdown) => {
 
-  const { languages, totalSize } = useLanguageBreakdown({ repoName, repoOwner });
   const [detailsVisible, setDetailsVisible] = React.useState(false);
 
   const sortedAndFilteredLanguages = languages

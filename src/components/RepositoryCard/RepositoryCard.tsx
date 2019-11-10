@@ -4,6 +4,9 @@ import InputRepo from '../../types/InputRepo';
 import styled from 'styled-components';
 import LanguageBar from '../LanguageBar';
 import { ShowcaseContext } from '../../context';
+import RespositoryDescription from './components/RepositoryDescription';
+import useRepository from '../../hooks/useRespository';
+import StyledLink from '../StyledLink';
 
 const RepositoryCard = styled.div`
     border-color: ${props => props.theme.colors.border};
@@ -13,7 +16,7 @@ const RepositoryCard = styled.div`
     display: flex;
     flex-direction: column;
     text-align: left;
-    color: ${props => props.theme.colors.textAccent};
+    color: ${props => props.theme.colors.textLink};
 `;
 
 const CardHeader = styled.div`
@@ -28,13 +31,7 @@ const RepositoryTitle = styled.div`
     margin-bottom: 2%;
     color: ${props => props.theme.colors.textPrimary};
     >a {
-        text-decoration: none;
-        color: ${props => props.theme.colors.textAccent};
         margin-right: 3px;
-        :visited{
-            color: ${props => props.theme.colors.textAccent};
-        }
-
         :nth-child(3){
             margin-left: 3px;
             font-weight: 600;
@@ -49,8 +46,10 @@ const RepositoryTitle = styled.div`
 export default ({ repoOwner, repoName }: InputRepo) => {
 
     const { endpoint } = React.useContext(ShowcaseContext);
-
     const githubUrl = endpoint.replace('api.', '').replace('graphql', '');
+
+    const { data , loading, error } = useRepository({repoOwner, repoName});
+
     return (
         <RepositoryCard>
             <CardHeader>
@@ -58,11 +57,12 @@ export default ({ repoOwner, repoName }: InputRepo) => {
                     <svg className="octicon octicon-repo" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true">
                         <path fill-rule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"/>
                     </svg>
-                    <a href={`${githubUrl}/${repoOwner}`}>{repoOwner}</a> /     
-                    <a href={`${githubUrl}/${repoOwner}/${repoName}`}>{repoName}</a>
+                    <StyledLink href={`${githubUrl}/${repoOwner}`}>{repoOwner}</StyledLink> /     
+                    <StyledLink href={`${githubUrl}/${repoOwner}/${repoName}`}>{repoName}</StyledLink>
                 </RepositoryTitle>
             </CardHeader>
-            <LanguageBar repoOwner={repoOwner} repoName={repoName} />
+            <RespositoryDescription repo={data}/>
+            <LanguageBar languages={data?.languageBreakdown?.languages} totalSize={data?.languageBreakdown?.totalSize}/>
         </RepositoryCard>
     )
 }
