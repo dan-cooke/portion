@@ -35,6 +35,7 @@ const LanguageBarSegment = styled.div`
 
 const LanguageBarDetailsContainer = styled.ol`
   display: flex;
+  flex-wrap: wrap;
   margin-top: 1rem;
   justify-content: space-evenly;
   list-style-type: none;
@@ -81,10 +82,10 @@ export default ({ repoName, repoOwner }: InputRepo) => {
       </LanguageBar>
 
       <LanguageBarDetailsContainer className={`sc-language-bar__details--${detailsVisible ? 'open' : 'closed'}`}>
-        {languages ?.map((lang: Language) => {
+        {languages ?.filter(({ percent }: Language) => percent > 0.1).map((lang: Language) => {
           return (
             <LanguageBarDetails key={`language-bar-details-${lang.id}`}>
-              
+
               <LanguageBarDetailsColoredCircle style={{ background: lang.color }} />
               <LanguageBarDetailsLanguageName>
                 {lang.name}
